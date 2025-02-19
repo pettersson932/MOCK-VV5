@@ -29,8 +29,10 @@ app.post("/login", userController.loginUser);
 app.post("/demand", auth, demandController.createDemand);
 app.get("/demand", auth, demandController.fetchMyDemands);
 app.post("/user/fetch", userController.fetchUser);
+app.put("/user/edit", auth, userController.editUser);
 
 // Catch-all for 404 errors
 app.use(notFoundController.error);
+
 
 exports.handler = serverless(app);
